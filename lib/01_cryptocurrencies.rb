@@ -54,3 +54,5 @@ if most_expensive_below_6000.any?
 else
   puts "4) Aucune devise trouvée avec un cours < 6000."
 end
+
+#Pour cet exercice aussi je me suis aider de Google et de Copilot pour trouver les commandes que je ne connaissais pas et dont j'avais besoin.

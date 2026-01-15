@@ -49,5 +49,4 @@ distribution.each do |size, count|
   puts "   - #{size} caractère(s) : #{count} handle(s)"
 end
 
-#Pour les deux exercices, je me suis aider de Google et de Copilot, afin de trouver les commandes dont j'avais besoin et que je ne connaissais pas.
-#Selon moi, si on aime et qu'on est bon en maths, coder du ruby sera plus simple que le html et le css car cela ressemble beaucoup a des maths.
+#Pour l'exercices, je me suis aider de Google et de Copilot, afin de trouver les commandes dont j'avais besoin et que je ne connaissais pas.
