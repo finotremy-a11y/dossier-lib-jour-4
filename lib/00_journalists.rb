@@ -29,24 +29,22 @@ distribution = lengths.each_with_object(Hash.new(0)) { |l, acc| acc[l] += 1 }
 distribution = distribution.sort.to_h  
 
 
-puts "1) **Nombre total de handles** : #{total}"
-puts "2) **Handle(s) le(s) plus court(s) (longueur #{min_len})** : #{shortest_handles.join(', ')}"
-puts "3) **Nombre de handles contenant exactement 5 caractères (sans '@')** : #{count_len_5}"
-puts "4) **Nombre de handles commençant par une majuscule** : #{count_start_upper}"
-puts "5) **Liste triée par ordre alphabétique** (affichage des 20 premiers pour contrôle) :"
-puts sorted_alpha.first(20).join(', ')
-puts "... (#{sorted_alpha.size} handles au total)"
-puts "6) **Liste triée par taille (petits -> grands)** (affichage des 20 premiers) :"
-puts sorted_by_size.first(20).join(', ')
-puts "... (#{sorted_by_size.size} handles au total)"
+puts "1) Nombre total de nom d'utilisateur : #{total}"
+puts "2) Nom le plus court : #{shortest_handles.join(', ')}"
+puts "3) Nombre de nom contenant que 5 caractères (sans le '@') : #{count_len_5}"
+puts "4) Nombre de nom commençant par une majuscule : #{count_start_upper}"
+puts "5) Liste des noms triée par ordre alphabétique (J'ai mis que les 15 premiers pour que ce soit plus facile a lire mais pour la correction je peux montrer en entier) :"
+puts sorted_alpha.first(15).join(', ')
+puts "Il y a (#{sorted_alpha.size} noms au total)"
+puts "6) Liste triée du plus petit au plus grand (J'ai egalement mis que les 15 premiers pour que ce soit plus simple a lire) :"
+puts sorted_by_size.first(15).join(', ')
+puts "Il y a (#{sorted_by_size.size} noms au total)"
 if position_epenser
-  puts "7) **Position de @epenser dans l'array** : #{position_epenser} (1-based index)"
-else
-  puts "7) **@epenser** n'est pas présent dans l'array."
+  puts "7) @epenser est positionner a la #{position_epenser} eme place dans l'array."
 end
-puts "8) **Répartition des handles par taille (sans '@')** :"
+puts "8) Répartition des nom par taille (toujours sans le '@') :"
 distribution.each do |size, count|
-  puts "   - #{size} caractère(s) : #{count} handle(s)"
+  puts "   - #{size} caractères : #{count} nom(s)"
 end
 
 #Pour l'exercices, je me suis aider de Google et de Copilot, afin de trouver les commandes dont j'avais besoin et que je ne connaissais pas.
