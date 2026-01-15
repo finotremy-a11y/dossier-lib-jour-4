@@ -31,26 +31,22 @@ min_cryptos = valid_pairs.select { |p| p[:price] == min_price }.map { |p| p[:nam
 
 below_6000 = valid_pairs.select { |p| p[:price] < 6000 }
 most_expensive_below_6000 = if below_6000.empty?
-  []
+
 else
   max_below = below_6000.map { |p| p[:price] }.max
   below_6000.select { |p| p[:price] == max_below }.map { |p| p[:name] }
 end
 
 
-puts "1) Devise avec la plus grosse valeur (#{max_price}):"
-puts "   - #{max_cryptos.join(', ')}"
+puts "1) Devise avec la plus grosse valeur : #{max_cryptos.join(', ')} #{max_price}"
 
-puts "2) Devise avec la plus petite valeur (#{min_price}):"
-puts "   - #{min_cryptos.join(', ')}"
+puts "2) Devise avec la plus petite valeur : #{min_cryptos.join (', ')} #{min_price}"
 
 puts "3) Devises avec un cours < 6000 : #{below_6000.size}"
 below_6000.first(30).each { |p| puts "   - #{p[:name]} : #{p[:price]}" }
 puts "   ... (J'ai fais afficher que les 30 premiers sinon c'etais trop long)"
 
-if most_expensive_below_6000.any?
-  puts "4) Devise la plus chère parmi celles < 6000 (#{below_6000.map{|p| p[:price]}.max}) :"
-  puts "   - #{most_expensive_below_6000.join(', ')}"
-end
+puts "4) Devise la plus chère parmi celles < 6000 : #{most_expensive_below_6000.join} (#{below_6000.map{|p| p[:price]}.max})"
+
 
 #Pour cet exercice aussi je me suis aider de Google et de Copilot pour trouver les commandes que je ne connaissais pas et dont j'avais besoin.
