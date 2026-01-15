@@ -21,8 +21,8 @@ sorted_alpha = handles.sort_by { |h| (h.start_with?('@') ? h[1..-1] : h).downcas
 sorted_by_size = handles.sort_by { |h| [(h.start_with?('@') ? h[1..-1] : h).length, (h.start_with?('@') ? h[1..-1] : h).downcase] }
 
 
-index_epenser = handles.index("@epenser")
-position_epenser = index_epenser ? index_epenser + 1 : nil
+index_epenser = handles.index("@epenser") + 1
+position_epenser = index_epenser 
 
 
 distribution = lengths.each_with_object(Hash.new(0)) { |l, acc| acc[l] += 1 }
@@ -35,16 +35,14 @@ puts "3) Nombre de nom contenant que 5 caractères (sans le '@') : #{count_len_5
 puts "4) Nombre de nom commençant par une majuscule : #{count_start_upper}"
 puts "5) Liste des noms triée par ordre alphabétique (J'ai mis que les 15 premiers pour que ce soit plus facile a lire mais pour la correction je peux montrer en entier) :"
 puts sorted_alpha.first(15).join(', ')
-puts "Il y a (#{sorted_alpha.size} noms au total)"
+puts "Il y a #{sorted_alpha.size} noms au total"
 puts "6) Liste triée du plus petit au plus grand (J'ai egalement mis que les 15 premiers pour que ce soit plus simple a lire) :"
 puts sorted_by_size.first(15).join(', ')
-puts "Il y a (#{sorted_by_size.size} noms au total)"
-if position_epenser
-  puts "7) @epenser est positionner a la #{position_epenser} eme place dans l'array."
-end
+puts "Il y a #{sorted_by_size.size} noms au total"
+puts "7) @epenser est positionner a la #{position_epenser} eme place dans l'array."
 puts "8) Répartition des nom par taille (toujours sans le '@') :"
 distribution.each do |size, count|
-  puts "   - #{size} caractères : #{count} nom(s)"
+  puts "   - #{size} caractères : #{count} noms"
 end
 
 #Pour l'exercices, je me suis aider de Google et de Copilot, afin de trouver les commandes dont j'avais besoin et que je ne connaissais pas.
