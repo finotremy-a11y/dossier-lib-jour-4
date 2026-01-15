@@ -9,7 +9,7 @@ prices = [
 ]
 
 clean_prices = prices.map do |s|
-  normalized = s.to_s.gsub(/[,\s]/, '')   # retire virgules et espaces (ex: "287,303" -> "287303")
+  normalized = s.to_s.gsub(/[,\s]/, '') 
   begin
     Float(normalized)
   rescue ArgumentError, TypeError
@@ -17,12 +17,12 @@ clean_prices = prices.map do |s|
   end
 end
 
-# --- Associer noms et prix en paires sécurisées ---
+
 n = [names.length, prices.length].min
 pairs = names.first(n).zip(clean_prices.first(n)).map { |name, price| { name: name, price: price } }
 valid_pairs = pairs.select { |p| !p[:price].nil? }
 
-# --- Calculs demandés ---
+
 max_price = valid_pairs.map { |p| p[:price] }.max
 max_cryptos = valid_pairs.select { |p| p[:price] == max_price }.map { |p| p[:name] }
 
@@ -37,7 +37,7 @@ else
   below_6000.select { |p| p[:price] == max_below }.map { |p| p[:name] }
 end
 
-# --- Affichage clair ---
+
 puts "1) Devise avec la plus grosse valeur (#{max_price}):"
 puts "   - #{max_cryptos.join(', ')}"
 
@@ -51,8 +51,6 @@ puts "   ... (J'ai fais afficher que les 30 premiers sinon c'etais trop long)"
 if most_expensive_below_6000.any?
   puts "4) Devise la plus chère parmi celles < 6000 (#{below_6000.map{|p| p[:price]}.max}) :"
   puts "   - #{most_expensive_below_6000.join(', ')}"
-else
-  puts "4) Aucune devise trouvée avec un cours < 6000."
 end
 
 #Pour cet exercice aussi je me suis aider de Google et de Copilot pour trouver les commandes que je ne connaissais pas et dont j'avais besoin.
