@@ -21,7 +21,7 @@ sorted_alpha = handles.sort_by { |h| (h.start_with?('@') ? h[1..-1] : h).downcas
 sorted_by_size = handles.sort_by { |h| [(h.start_with?('@') ? h[1..-1] : h).length, (h.start_with?('@') ? h[1..-1] : h).downcase] }
 
 
-index_epenser = handles.index("@epenser") + 1
+index_epenser = handles.index("@epenser")
 position_epenser = index_epenser 
 
 
